@@ -3,14 +3,15 @@ FROM node:18
 WORKDIR /app
 
 COPY package.json ./
-
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 COPY . .
+COPY medusa-config.js ./
 
-EXPOSE 5000
+EXPOSE 9000
 
 CMD ["npm", "run", "start"]
+
 
 
 
